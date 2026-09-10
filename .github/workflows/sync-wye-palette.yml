@@ -1,0 +1,43 @@
+name: Sync Wye palette
+
+# Opens a pull request when phyzess/vscode-theme-wye changes a color we port.
+# The job only reads upstream over HTTPS and writes with the workflow token —
+# no secrets required.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Regenerate index.client.ts
+        run: node scripts/sync-theme.mjs
+
+      - name: Open a pull request when the palette moved
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet; then
+            echo "Upstream palette unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b chore/sync-wye-palette
+          git commit -am "chore(theme): sync palette from vscode-theme-wye"
+          git push -u origin chore/sync-wye-palette --force
+          gh pr create --fill --head chore/sync-wye-palette \
+            || echo "A pull request already exists for this branch."
