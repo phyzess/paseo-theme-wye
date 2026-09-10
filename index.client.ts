@@ -25,7 +25,7 @@ import type { PluginClientContext } from "@getpaseo/plugin/client";
  *   accent          <- WyeThemes.primary (button.background)
  *   mutedForeground <- WyeThemes.secondaryForeground, or comment for the light variants
  *                      (secondaryForeground is translucent there, and Paseo requires opaque hex)
- *   ring            <- WyeThemes.pink (focusBorder)
+ *   ring            <- terminal.ansiBrightBlack (dim chrome: extra-muted text, focus ring, terminal)
  */
 export default function contribute(client: PluginClientContext) {
   client.addTheme({
@@ -40,7 +40,7 @@ export default function contribute(client: PluginClientContext) {
       border: "#222222",
       accent: "#bde46f",
       mutedForeground: "#b3b1ad",
-      ring: "#ff57b3",
+      ring: "#777777",
     },
   });
 
@@ -56,7 +56,7 @@ export default function contribute(client: PluginClientContext) {
       border: "#292929",
       accent: "#bde46f",
       mutedForeground: "#b3b1ad",
-      ring: "#ff57b3",
+      ring: "#777777",
     },
   });
 
@@ -72,7 +72,7 @@ export default function contribute(client: PluginClientContext) {
       border: "#151515",
       accent: "#bde46f",
       mutedForeground: "#b3b1ad",
-      ring: "#ff57b3",
+      ring: "#777777",
     },
   });
 
@@ -88,7 +88,7 @@ export default function contribute(client: PluginClientContext) {
       border: "#f0f0f0",
       accent: "#1c6b48",
       mutedForeground: "#a0ada0",
-      ring: "#fe70bc",
+      ring: "#aaaaaa",
     },
   });
 
@@ -104,7 +104,7 @@ export default function contribute(client: PluginClientContext) {
       border: "#e7e5db",
       accent: "#1c6b48",
       mutedForeground: "#a0ada0",
-      ring: "#fe70bc",
+      ring: "#aaaaaa",
     },
   });
 

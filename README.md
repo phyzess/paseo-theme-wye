@@ -32,8 +32,8 @@ A Paseo theme is data, not code. `addTheme` takes eight seed colors and Paseo
 derives the full token set from them — panels, menus, diffs, status colors,
 syntax highlighting and terminal colors. Wye's exact syntax mapping (lime
 strings, cyan keywords, orange variables) therefore does **not** carry over 1:1;
-what carries over is the surface identity: near-black backgrounds, the lime
-primary `#bde46f`, and the pink focus ring `#ff57b3`.
+what carries over is the surface identity: near-black backgrounds and the lime
+primary `#bde46f`.
 
 ## Syncing with upstream
 
@@ -74,11 +74,19 @@ token.
 | `border`          | `WyeThemes.lowBorder` / `border`, `WyeThemes.background` |
 | `accent`          | `WyeThemes.primary` (`button.background`)           |
 | `mutedForeground` | `WyeThemes.secondaryForeground`, or `comment` for light |
-| `ring`            | `WyeThemes.pink` (`focusBorder`)                    |
+| `ring`            | `terminal.ansiBrightBlack` (Wye's dim chrome gray)   |
 
-One deliberate deviation: VS Code keeps Wye's borders background-colored, which
-would collapse Paseo's panel boundaries. The port uses the theme's own subtle
-`lowBorder` value so surfaces stay readable.
+Two deliberate deviations:
+
+1. VS Code keeps Wye's borders background-colored, which would collapse Paseo's
+   panel boundaries. The port uses the theme's own subtle `lowBorder` value so
+   surfaces stay readable.
+2. Wye's pink `focusBorder` is *not* used. A contributed theme's `ring` seed
+   becomes `foregroundExtraMuted` — composer placeholders and other dimmed
+   chrome — plus the highest surface tint, the terminal's bright black and the
+   focus ring. A saturated pink there paints placeholders and small controls
+   pink. The built-in Paseo themes use a dim gray, and so does this port: Wye's
+   own `terminal.ansiBrightBlack` (`#777777` dark, `#aaaaaa` light).
 
 ## Layout
 

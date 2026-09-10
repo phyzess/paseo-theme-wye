@@ -54,7 +54,7 @@ const VARIANTS = [
       border: ["palette", "lowBorder", 0],
       accent: ["palette", "primary", 0],
       mutedForeground: ["palette", "secondaryForeground", 0],
-      ring: ["palette", "pink", 0],
+      ring: ["workbench", "terminal.ansiBrightBlack"],
     },
   },
   {
@@ -70,7 +70,7 @@ const VARIANTS = [
       border: ["palette", "lowActiveBackground", 0],
       accent: ["palette", "primary", 0],
       mutedForeground: ["palette", "secondaryForeground", 0],
-      ring: ["palette", "pink", 0],
+      ring: ["workbench", "terminal.ansiBrightBlack"],
     },
   },
   {
@@ -86,7 +86,7 @@ const VARIANTS = [
       border: ["palette", "background", 0],
       accent: ["palette", "primary", 0],
       mutedForeground: ["palette", "secondaryForeground", 0],
-      ring: ["palette", "pink", 0],
+      ring: ["workbench", "terminal.ansiBrightBlack"],
     },
   },
   {
@@ -102,7 +102,7 @@ const VARIANTS = [
       border: ["palette", "border", 1],
       accent: ["palette", "primary", 1],
       mutedForeground: ["palette", "comment", 1],
-      ring: ["palette", "pink", 1],
+      ring: ["workbench", "terminal.ansiBrightBlack"],
     },
   },
   {
@@ -118,7 +118,7 @@ const VARIANTS = [
       border: ["palette", "lowBorder", 1],
       accent: ["palette", "primary", 1],
       mutedForeground: ["palette", "comment", 1],
-      ring: ["palette", "pink", 1],
+      ring: ["workbench", "terminal.ansiBrightBlack"],
     },
   },
 ];
@@ -228,7 +228,7 @@ function render(variants) {
  *   accent          <- WyeThemes.primary (button.background)
  *   mutedForeground <- WyeThemes.secondaryForeground, or comment for the light variants
  *                      (secondaryForeground is translucent there, and Paseo requires opaque hex)
- *   ring            <- WyeThemes.pink (focusBorder)
+ *   ring            <- terminal.ansiBrightBlack (dim chrome: extra-muted text, focus ring, terminal)
  */
 export default function contribute(client: PluginClientContext) {`;
 
